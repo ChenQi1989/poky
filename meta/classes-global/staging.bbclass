@@ -285,7 +285,7 @@ python extend_recipe_sysroot() {
     # Detect bitbake -b usage
     nodeps = d.getVar("BB_LIMITEDDEPS") or False
     if nodeps:
-        lock = bb.utils.lockfile(recipesysroot + "/sysroot.lock")
+        lock = bb.utils.lockfile(recipesysroot + ".lock")
         staging_populate_sysroot_dir(recipesysroot, recipesysrootnative, True, d)
         staging_populate_sysroot_dir(recipesysroot, recipesysrootnative, False, d)
         bb.utils.unlockfile(lock)
@@ -404,7 +404,7 @@ python extend_recipe_sysroot() {
     bb.utils.mkdirhier(depdir)
     bb.utils.mkdirhier(sharedmanifests)
 
-    lock = bb.utils.lockfile(recipesysroot + "/sysroot.lock")
+    lock = bb.utils.lockfile(recipesysroot + ".lock")
 
     fixme = {}
     seendirs = set()
@@ -652,10 +652,32 @@ addtask do_prepare_recipe_sysroot before do_configure after do_fetch
 
 python staging_taskhandler() {
     bbtasks = e.tasklist
+    use_tss = bb.utils.to_boolean(d.getVar("USE_TSS"))
     for task in bbtasks:
         deps = d.getVarFlag(task, "depends")
         if task != 'do_prepare_recipe_sysroot' and (task == "do_configure" or (deps and "populate_sysroot" in deps)):
             d.prependVarFlag(task, "prefuncs", "extend_recipe_sysroot ")
+            if use_tss:
+                # set tss varflag to 1 unless recipe itself has already set it to 0 or 1
+                if not d.getVarFlag(task, "tss") and task not in ["do_addto_recipe_sysroot"]:
+                    d.setVarFlag(task, "tss", "1")
+    if use_tss:
+        #
+        # Ensure extend_recipe_sysroot is in prefuncs for all tasks with tss set.
+        # Bacause when set to 1, we of course need to setup sysroot; when set to 0, we need to ensure it gets all stuff ready in sysroot.
+        # If it's not set, but the task is after do_prepare_recipe_sysroot, set tss to 1 and ensure extend_recipe_sysroot is in prefuncs
+        #
+        sysroot_tasks = bb.build.followtask("do_prepare_recipe_sysroot", True, d)
+        # sysroot_tasks = bb.build.tasksbetween("do_prepare_recipe_sysroot", "do_build", d)
+        for task in bbtasks:
+            prefuncs = d.getVarFlag(task, "prefuncs") or ""
+            if d.getVarFlag(task, "tss"):
+                if "extend_recipe_sysroot" not in prefuncs:
+                    d.prependVarFlag(task, "prefuncs", "extend_recipe_sysroot ")
+            elif task in sysroot_tasks and task not in  ["do_prepare_recipe_sysroot", "do_addto_recipe_sysroot"]:
+                d.setVarFlag(task, "tss", "1")
+                if "extend_recipe_sysroot" not in prefuncs:
+                    d.prependVarFlag(task, "prefuncs", "extend_recipe_sysroot ")
 }
 staging_taskhandler[eventmask] = "bb.event.RecipeTaskPreProcess"
 addhandler staging_taskhandler

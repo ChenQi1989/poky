@@ -165,6 +165,7 @@ python () {
         d.appendVarFlag(task, 'postfuncs', " sstate_task_postfunc")
         d.setVarFlag(task, 'network', '1')
         d.setVarFlag(task + "_setscene", 'network', '1')
+        d.setVarFlag(task + "_setscene", 'tss', '0')
 }
 
 def sstate_init(task, d):

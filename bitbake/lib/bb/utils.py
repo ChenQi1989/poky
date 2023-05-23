@@ -1667,7 +1667,7 @@ def enable_loopback_networking():
         req = struct.pack("@H", AF_INET) + struct.pack("=H4B", 0, 255, 0, 0, 0)
         netdev_req(fd, SIOCSIFNETMASK, req)
 
-def disable_network(uid=None, gid=None):
+def isolate_process(uid=None, gid=None, disable_network=True, new_ns=True):
     """
     Disable networking in the current process if the kernel supports it, else
     just return after logging to debug. To do this we need to create a new user
@@ -1676,6 +1676,8 @@ def disable_network(uid=None, gid=None):
     libc = ctypes.CDLL('libc.so.6')
 
     # From sched.h
+    # New mount namespace
+    CLONE_NEWNS = 0x00020000
     # New user namespace
     CLONE_NEWUSER = 0x10000000
     # New network namespace
@@ -1686,16 +1688,27 @@ def disable_network(uid=None, gid=None):
     if gid is None:
         gid = os.getgid()
 
-    ret = libc.unshare(CLONE_NEWNET | CLONE_NEWUSER)
+    flag = CLONE_NEWUSER
+    if new_ns:
+        flag = flag | CLONE_NEWNS
+    if disable_network:
+        flag = flag | CLONE_NEWNET
+    ret = libc.unshare(flag)
     if ret != 0:
-        logger.debug("System doesn't support disabling network without admin privs")
+        logger.debug("System doesn't support isolating process without admin privs")
         return
     with open("/proc/self/uid_map", "w") as f:
-        f.write("%s %s 1" % (uid, uid))
+        if not new_ns:
+            f.write("%s %s 1" % (uid, uid))
+        else:
+            f.write("0 %s 1" % uid)
     with open("/proc/self/setgroups", "w") as f:
         f.write("deny")
     with open("/proc/self/gid_map", "w") as f:
-        f.write("%s %s 1" % (gid, gid))
+        if not new_ns:
+            f.write("%s %s 1" % (gid, gid))
+        else:
+            f.write("0 %s 1" % gid)
 
 def export_proxies(d):
     from bb.fetch2 import get_fetcher_environment

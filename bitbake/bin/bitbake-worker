@@ -268,14 +268,34 @@ def fork_off_task(cfg, data, databuilder, workerdata, extraconfigdata, runtask):
                 the_data.setVar('BB_UNIHASH', unihash)
                 bb.parse.siggen.setup_datacache_from_datastore(fn, the_data)
 
-                bb.utils.set_process_name("%s:%s" % (the_data.getVar("PN"), taskname.replace("do_", "")))
+                pn = the_data.getVar("PN")
+                bb.utils.set_process_name("%s:%s" % (pn, taskname.replace("do_", "")))
 
-                if not bb.utils.to_boolean(the_data.getVarFlag(taskname, 'network')):
+                disable_network = not bb.utils.to_boolean(the_data.getVarFlag(taskname, 'network'))
+                needs_tss = bb.utils.to_boolean(the_data.getVarFlag(taskname, 'tss')) or False
+                if needs_tss or disable_network:
                     if bb.utils.is_local_uid(uid):
-                        logger.debug("Attempting to disable network for %s" % taskname)
-                        bb.utils.disable_network(uid, gid)
+                        logger.warning("Attempting to isolating process for %s:%s - disable network: %s, TSS: %s" % (pn, taskname, disable_network, needs_tss))
+                        bb.utils.isolate_process(uid, gid, disable_network=disable_network, new_ns=needs_tss)
+                        # setup TSS
+                        if needs_tss:
+                            recipesysroot = the_data.getVar("RECIPE_SYSROOT")
+                            recipesysrootnative = the_data.getVar("RECIPE_SYSROOT_NATIVE")
+                            try:
+                                tss_rs = recipesysroot + "." + taskname
+                                tss_wd = recipesysroot + ".workdir." + taskname
+                                tss_rs_native = recipesysrootnative + "." + taskname
+                                tss_wd_native = recipesysrootnative + ".workdir." + taskname
+                                for dentry in [recipesysroot, recipesysrootnative, tss_rs, tss_wd, tss_rs_native, tss_wd_native]:
+                                    bb.utils.mkdirhier(dentry)
+                                subprocess.check_call('mount -t overlay overlay -o lowerdir=%s,upperdir=%s,workdir=%s %s' % (recipesysroot, tss_rs, tss_wd, recipesysroot), shell=True)
+                                subprocess.check_call('mount -t overlay overlay -o lowerdir=%s,upperdir=%s,workdir=%s %s' % (recipesysrootnative, tss_rs_native, tss_wd_native, recipesysrootnative), shell=True)
+                                bb.warn("Successfully used TSS for %s:%s" % (pn, taskname))
+                                #subprocess.check_call('find %s >/tmp/contents.%s.%s' % (recipesysrootnative, the_data.getVar("PN"), taskname), shell=True)
+                            except Exception as e:
+                                bb.warn("Unable to use TSS (Task Specific Sysroot) for %s:%s\n%s" % (pn, taskname, e))
                     else:
-                        logger.debug("Skipping disable network for %s since %s is not a local uid." % (taskname, uid))
+                        logger.debug("Skipping isolating process for %s since %s is not a local uid." % (taskname, uid))
 
                 # exported_vars() returns a generator which *cannot* be passed to os.environ.update() 
                 # successfully. We also need to unset anything from the environment which shouldn't be there 

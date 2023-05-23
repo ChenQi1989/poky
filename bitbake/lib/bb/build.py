@@ -993,6 +993,38 @@ def preceedtask(task, with_recrdeptasks, d):
             preceed.update(recrdeptask.split())
     return preceed
 
+def followtask(task, with_recrdeptasks, d):
+    """
+    Returns a set of tasks in the current recipe whose precondition
+    contains the task. Tasks whose "recrdeptask" specify the task are
+    included in the result only if requested. Beware that this may lead
+    to the task itself being listed.
+    """
+    # Ignore tasks which don't exist
+    tasks = d.getVar('__BBTASKS', False)
+    if task not in tasks:
+        return set()
+
+    dict_tasks = {'follow': set(), 'unknown': set(tasks)}
+    while True:
+        unknown_tasks = list(dict_tasks['unknown'])
+        for t in unknown_tasks:
+            dep_tasks = set(d.getVarFlag(t, 'deps') or [])
+            if task in dep_tasks:
+                dict_tasks['follow'].add(t)
+                dict_tasks['unknown'].remove(t)
+            elif dict_tasks['follow'] - dep_tasks != dict_tasks['follow']:
+                dict_tasks['follow'].add(t)
+                dict_tasks['unknown'].remove(t)
+            elif with_recrdeptasks:
+                recrdeptask = d.getVarFlag(t, 'recrdeptask') or ""
+                if task in recrdeptask.split():
+                    dict_tasks['follow'].add(t)
+                    dict_tasks['unknown'].remove(t)
+        if set(unknown_tasks) == dict_tasks['unknown']:
+            break
+    return dict_tasks['follow']
+
 def tasksbetween(task_start, task_end, d):
     """
     Return the list of tasks between two tasks in the current recipe,
