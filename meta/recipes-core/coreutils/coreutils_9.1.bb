@@ -83,6 +83,10 @@ RPROVIDES:coreutils += "${@bb.utils.contains('PACKAGECONFIG', 'single-binary', '
 # directory.
 acpaths = "-I ./m4"
 
+do_configure:prepend() {
+    export FORCE_UNSAFE_CONFIGURE="1"
+}
+
 # Deal with a separate builddir failure if src doesn't exist when creating version.c/version.h
 do_compile:prepend () {
 	mkdir -p ${B}/src
