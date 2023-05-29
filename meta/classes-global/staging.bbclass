@@ -653,8 +653,12 @@ addtask do_prepare_recipe_sysroot before do_configure after do_fetch
 python staging_taskhandler() {
     bbtasks = e.tasklist
     use_tss = bb.utils.to_boolean(d.getVar("USE_TSS"))
+    assume_provided = d.getVar('ASSUME_PROVIDED')
     for task in bbtasks:
         deps = d.getVarFlag(task, "depends")
+        if deps:
+            for ap in assume_provided:
+                deps = deps.replace("%s:do_populate_sysroot" % ap, "")
         if task != 'do_prepare_recipe_sysroot' and (task == "do_configure" or (deps and "populate_sysroot" in deps)):
             d.prependVarFlag(task, "prefuncs", "extend_recipe_sysroot ")
             if use_tss:
