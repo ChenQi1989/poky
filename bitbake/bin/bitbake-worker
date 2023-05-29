@@ -273,9 +273,9 @@ def fork_off_task(cfg, data, databuilder, workerdata, extraconfigdata, runtask):
 
                 disable_network = not bb.utils.to_boolean(the_data.getVarFlag(taskname, 'network'))
                 needs_tss = bb.utils.to_boolean(the_data.getVarFlag(taskname, 'tss')) or False
+                logger.warning("%s:%s - disable network: %s, TSS: %s" % (pn, taskname, disable_network, needs_tss))
                 if needs_tss or disable_network:
                     if bb.utils.is_local_uid(uid):
-                        logger.warning("Attempting to isolating process for %s:%s - disable network: %s, TSS: %s" % (pn, taskname, disable_network, needs_tss))
                         bb.utils.isolate_process(uid, gid, disable_network=disable_network, new_ns=needs_tss)
                         # setup TSS
                         if needs_tss:
