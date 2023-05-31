@@ -140,6 +140,7 @@ python do_testimage() {
 addtask testimage
 do_testimage[nostamp] = "1"
 do_testimage[network] = "1"
+do_testimage[tss] = "0"
 do_testimage[depends] += "${TESTIMAGEDEPENDS}"
 do_testimage[lockfiles] += "${TESTIMAGELOCK}"
 

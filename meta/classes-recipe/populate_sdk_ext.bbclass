@@ -831,6 +831,9 @@ do_populate_sdk_ext[vardeps] += "copy_buildsystem \
 # always runs.
 do_populate_sdk_ext[nostamp] = "1"
 
+# No TSS as bitbake is not allowed to run as root
+do_populate_sdk_ext[tss] = "0"
+
 SDKEXTDEPLOYDIR = "${WORKDIR}/deploy-${PN}-populate-sdk-ext"
 
 SSTATETASKS += "do_populate_sdk_ext"
