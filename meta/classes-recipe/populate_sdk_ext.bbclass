@@ -126,12 +126,12 @@ SDK_TITLE:task-populate-sdk-ext = "${@d.getVar('DISTRO_NAME') or d.getVar('DISTR
 
 def clean_esdk_builddir(d, sdkbasepath):
     """Clean up traces of the fake build for create_filtered_tasklist()"""
-    import shutil
+    import subprocess
     cleanpaths = ['cache', 'tmp']
     for pth in cleanpaths:
         fullpth = os.path.join(sdkbasepath, pth)
         if os.path.isdir(fullpth):
-            shutil.rmtree(fullpth)
+            subprocess.check_call('rm -rf %s' % fullpth, shell=True)
         elif os.path.isfile(fullpth):
             os.remove(fullpth)
 
