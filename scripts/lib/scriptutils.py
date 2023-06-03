@@ -215,11 +215,16 @@ def fetch_url(tinfoil, srcuri, srcrev, destdir, logger, preserve_tmp=False, mirr
             # Remove unneeded directories
             rd = tinfoil.parse_recipe(fetchrecipepn)
             if rd:
-                pathvars = ['T', 'RECIPE_SYSROOT', 'RECIPE_SYSROOT_NATIVE']
+                pathvars = ['T']
+                pathvars_glob = ['RECIPE_SYSROOT', 'RECIPE_SYSROOT_NATIVE']
                 for pathvar in pathvars:
                     path = rd.getVar(pathvar)
                     if os.path.exists(path):
                         shutil.rmtree(path)
+                for pvg in pathvars_glob:
+                    path_glob = rd.getVar(pvg)
+                    for p in glob.glob('%s*'% path_glob):
+                        subprocess.check_call('rm -rf %s' % p, shell=True)
         finally:
             if fetchrecipe:
                 try:
