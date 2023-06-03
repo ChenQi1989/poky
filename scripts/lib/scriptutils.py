@@ -179,7 +179,6 @@ def fetch_url(tinfoil, srcuri, srcrev, destdir, logger, preserve_tmp=False, mirr
                 f.write('SRCREV = "%s"\n' % srcrev)
                 f.write('PV = "0.0+${SRCPV}"\n')
                 f.write('WORKDIR = "%s"\n' % tmpworkdir)
-                f.write('USE_TSS = "0"\n')
                 # Set S out of the way so it doesn't get created under the workdir
                 f.write('S = "%s"\n' % os.path.join(tmpdir, 'emptysrc'))
                 if not mirrors:
