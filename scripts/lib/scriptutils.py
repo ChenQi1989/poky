@@ -222,8 +222,7 @@ def fetch_url(tinfoil, srcuri, srcrev, destdir, logger, preserve_tmp=False, mirr
                         shutil.rmtree(path)
                 for pvg in pathvars_glob:
                     path_glob = rd.getVar(pvg)
-                    for p in glob.glob('%s*'% path_glob):
-                        subprocess.check_call('rm -rf %s' % p, shell=True)
+                    bb.utils.remove('%s*' % path_glob, recurse=True)
         finally:
             if fetchrecipe:
                 try:
