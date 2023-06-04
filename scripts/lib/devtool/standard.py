@@ -693,7 +693,7 @@ def _extract_source(srctree, keep_temp, devbranch, sync, config, basepath, works
         if keep_temp:
             logger.info('Preserving temporary directory %s' % tempdir)
         else:
-            shutil.rmtree(tempdir)
+            bb.utils.remove(tempdir, recurse=True)
     return initial_rev, srcsubdir_rel
 
 def _add_md5(config, recipename, filename):
