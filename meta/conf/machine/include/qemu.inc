@@ -22,7 +22,7 @@ RDEPENDS:${KERNEL_PACKAGE_NAME}-base = ""
 # Use a common kernel recipe for all QEMU machines
 PREFERRED_PROVIDER_virtual/kernel ??= "linux-yocto"
 
-EXTRA_IMAGEDEPENDS += "qemu-system-native qemu-helper-native:do_addto_recipe_sysroot"
+EXTRA_IMAGEDEPENDS += "qemu-helper-native:do_addto_recipe_sysroot"
 
 # Provide the nfs server kernel module for all qemu images
 KERNEL_FEATURES:append:pn-linux-yocto = " features/nfsd/nfsd-enable.scc"
