@@ -83,6 +83,7 @@ class Signing(OESelftestTestCase):
         feature += 'RPM_GPG_PASSPHRASE = "test123"\n'
         feature += 'RPM_GPG_NAME = "testuser"\n'
         feature += 'GPG_PATH = "%s"\n' % self.gpg_dir
+        feature += 'USE_TSS:pn-%s = "0"\n' % test_recipe
 
         self.write_config(feature)
 
