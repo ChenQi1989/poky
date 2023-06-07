@@ -48,9 +48,12 @@ EXTRA_OECONF = " \
 do_configure[cleandirs] = "${B}"
 
 # We need a dummy limits.h to pass preprocessor checks
-do_configure:append(){
-    install -d ${STAGING_INCDIR}
-    touch  ${STAGING_INCDIR}/limits.h
+python do_prepare_recipe_sysroot:append () {
+    incdir = d.getVar('STAGING_INCDIR')
+    if not os.path.exists(incdir):
+        os.makedirs(incdir)
+    with open(incdir + '/limits.h', 'w') as f:
+        pass
 }
 
 do_install() {
