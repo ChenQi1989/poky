@@ -471,8 +471,8 @@ python extend_recipe_sysroot() {
                         continue
                     potential.append(l)
         # We need to ensure no other task needs this dependency. We hold the sysroot
-        # lock so we ca search the indexes to check
-        if potential:
+        # lock so we can search the indexes to check
+        if potential and not bb.utils.to_boolean(d.getVarFlag(mytaskname, 'tss')):
             for i in glob.glob(depdir + "/index.*"):
                 if i.endswith("." + mytaskname):
                     continue
