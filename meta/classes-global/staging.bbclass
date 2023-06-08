@@ -671,7 +671,6 @@ python staging_taskhandler() {
         # If it's not set, but the task is after do_prepare_recipe_sysroot, set tss to 1 and ensure extend_recipe_sysroot is in prefuncs
         #
         sysroot_tasks = bb.build.followtask("do_prepare_recipe_sysroot", True, d)
-        # sysroot_tasks = bb.build.tasksbetween("do_prepare_recipe_sysroot", "do_build", d)
         for task in bbtasks:
             prefuncs = d.getVarFlag(task, "prefuncs") or ""
             if d.getVarFlag(task, "tss"):
