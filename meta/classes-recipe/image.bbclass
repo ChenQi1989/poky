@@ -265,6 +265,7 @@ fakeroot python do_rootfs () {
 do_rootfs[dirs] = "${TOPDIR}"
 do_rootfs[cleandirs] += "${IMAGE_ROOTFS} ${IMGDEPLOYDIR} ${S}"
 do_rootfs[file-checksums] += "${POSTINST_INTERCEPT_CHECKSUMS}"
+do_rootfs[tss] = "0"
 addtask rootfs after do_prepare_recipe_sysroot
 
 fakeroot python do_image () {
