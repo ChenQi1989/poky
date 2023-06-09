@@ -680,6 +680,9 @@ python staging_taskhandler() {
                 d.setVarFlag(task, "tss", "1")
                 if "extend_recipe_sysroot" not in prefuncs:
                     d.prependVarFlag(task, "prefuncs", "extend_recipe_sysroot ")
+            elif task not in sysroot_tasks and task not in ["do_prepare_recipe_sysroot"]:
+                if "extend_recipe_sysroot" not in prefuncs:
+                    d.setVar('SYSROOT_PATH:task-%s' % task.replace('do_', '').replace('_', '-'), '')
 }
 staging_taskhandler[eventmask] = "bb.event.RecipeTaskPreProcess"
 addhandler staging_taskhandler
