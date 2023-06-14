@@ -415,8 +415,8 @@ python extend_recipe_sysroot() {
     fileset = {}
 
     invalidate_tasks = set()
+    removed = []
     for f in os.listdir(depdir):
-        removed = []
         if not f.endswith(".complete"):
             continue
         f = depdir + "/" + f
@@ -491,6 +491,7 @@ python extend_recipe_sysroot() {
             bb.note("Task %s no longer depends on %s, removing from sysroot" % (mytaskname, l))
             lnk = os.readlink(fl)
             sstate_clean_manifest(depdir + "/" + lnk, d, canrace=True, prefix=workdir)
+            removed.append(l)
             os.unlink(fl)
             os.unlink(fl + ".complete")
 
@@ -512,6 +513,7 @@ python extend_recipe_sysroot() {
             else:
                 bb.note("%s exists in sysroot, but is stale (%s vs. %s), removing." % (c, lnk, c + "." + taskhash))
                 sstate_clean_manifest(depdir + "/" + lnk, d, canrace=True, prefix=workdir)
+                removed.append(c)
                 os.unlink(depdir + "/" + c)
                 if os.path.lexists(depdir + "/" + c + ".complete"):
                     os.unlink(depdir + "/" + c + ".complete")
@@ -599,6 +601,8 @@ python extend_recipe_sysroot() {
                            m.write(dest.replace(workdir + "/", "") + "\n")
                 bb.utils.unlockfile(smlock)
             try:
+                if c in removed and bb.utils.to_boolean(d.getVarFlag(mytaskname, 'tss')) and os.path.exists(taskmanifest):
+                    os.unlink(taskmanifest)
                 os.link(sharedm, taskmanifest)
             except OSError as err:
                 if err.errno == errno.EXDEV:
