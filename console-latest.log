@@ -1,0 +1,551 @@
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "2.4.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "qemux86-64"
+DISTRO               = "poky"
+DISTRO_VERSION       = "4.2"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta                 
+meta-poky            
+meta-yocto-bsp       = "master:e6d4bb48f4826392408fbc300b3a6a9c9c709d90"
+meta-filesystems     
+meta-gnome           
+meta-initramfs       
+meta-multimedia      
+meta-networking      
+meta-oe              
+meta-perl            
+meta-python          
+meta-webserver       
+meta-xfce            = "master:bbb922cf3ad3cbdbbe26ccae81bfac9c89f2db4b"
+meta-virtualization  = "master:ce51d3a3f78b1a6c5a0966c46562d1f7ce3c11d6"
+
+Sstate summary: Wanted 660 Local 0 Mirrors 0 Missed 660 Current 1827 (0% match, 73% complete)
+NOTE: Executing Tasks
+NOTE: Setscene tasks completed
+NOTE: Running task 2536 of 5129 (/buildarea2/chenqi/poky/meta/recipes-core/coreutils/coreutils_9.3.bb:do_compile)
+WARNING: io_pressure is 2551.1104281386115; tdiff = 9.37670111656189
+WARNING: psi_blocking_time = 0.9992163348505814
+NOTE: recipe coreutils-9.3-r0: task do_compile: Started
+WARNING: io_pressure is 121705.376942754; tdiff = 1.014343023300171
+WARNING: psi_blocking_time = 0.9999835670073316
+WARNING: io_pressure is 174537.2959111831; tdiff = 1.0016827583312988
+WARNING: psi_blocking_time = 0.9999885411967067
+WARNING: io_pressure is 32536.630121127135; tdiff = 1.0012714862823486
+WARNING: psi_blocking_time = 0.9999385327083579
+WARNING: io_pressure is 2881.6138889776216; tdiff = 1.000133991241455
+WARNING: psi_blocking_time = 0.9993061852620473
+WARNING: io_pressure is 3325.7597443574573; tdiff = 1.0000722408294678
+WARNING: psi_blocking_time = 0.9993988144159216
+WARNING: io_pressure is 3848.9268322230687; tdiff = 0.9997591972351074
+WARNING: psi_blocking_time = 0.9994805096078033
+WARNING: io_pressure is 1395.5779757016428; tdiff = 1.013200283050537
+WARNING: psi_blocking_time = 0.9985679281538181
+WARNING: io_pressure is 4820.208483755892; tdiff = 1.0918614864349365
+WARNING: psi_blocking_time = 0.9995851662489315
+NOTE: recipe coreutils-9.3-r0: task do_compile: Succeeded
+WARNING: io_pressure is 17631.381677995465; tdiff = 1.0158591270446777
+WARNING: psi_blocking_time = 0.9998865723283148
+NOTE: Running task 2537 of 5129 (/buildarea2/chenqi/poky/meta/recipes-core/coreutils/coreutils_9.3.bb:do_install)
+WARNING: io_pressure is 2.2122961132377212; tdiff = 1.3560571670532227
+WARNING: psi_blocking_time = 0.37739239176671974
+NOTE: recipe coreutils-9.3-r0: task do_install: Started
+WARNING: io_pressure is 60280.75957332687; tdiff = 0.4249448776245117
+WARNING: psi_blocking_time = 0.9999668224681204
+WARNING: io_pressure is 64245.93966747499; tdiff = 1.0059001445770264
+WARNING: psi_blocking_time = 0.9999688701125633
+WARNING: io_pressure is 5808.605588765886; tdiff = 1.092172622680664
+WARNING: psi_blocking_time = 0.9996557425509457
+WARNING: io_pressure is 11235.512268996583; tdiff = 1.0037815570831299
+WARNING: psi_blocking_time = 0.9998220088269277
+WARNING: io_pressure is 6137.574163307924; tdiff = 1.1017382144927979
+WARNING: psi_blocking_time = 0.999674191441401
+WARNING: io_pressure is 1966.4713074373474; tdiff = 1.0317974090576172
+WARNING: psi_blocking_time = 0.9989834667512356
+NOTE: recipe coreutils-9.3-r0: task do_install: Succeeded
+NOTE: Running task 2569 of 5129 (/buildarea2/chenqi/poky/meta/recipes-devtools/libdnf/libdnf_0.70.1.bb:do_compile)
+NOTE: recipe libdnf-0.70.1-r0: task do_compile: Started
+WARNING: io_pressure is 378073.2110360914; tdiff = 1.0908575057983398
+WARNING: psi_blocking_time = 0.9999947100332643
+WARNING: io_pressure is 176377.3007827791; tdiff = 1.0859787464141846
+WARNING: psi_blocking_time = 0.9999886607366603
+WARNING: io_pressure is 200.60281703613364; tdiff = 1.006964921951294
+WARNING: psi_blocking_time = 0.9900795037023638
+WARNING: io_pressure is 18.482299574492167; tdiff = 1.028010606765747
+WARNING: psi_blocking_time = 0.8973427139669609
+WARNING: io_pressure is 30.593532788774528; tdiff = 0.9805994033813477
+WARNING: psi_blocking_time = 0.9366959050331143
+WARNING: io_pressure is 2371.7820642323773; tdiff = 0.937269926071167
+WARNING: psi_blocking_time = 0.99915710758685
+WARNING: io_pressure is 5173.847566012242; tdiff = 1.046030044555664
+WARNING: psi_blocking_time = 0.9996135151858123
+WARNING: io_pressure is 34353.65132263428; tdiff = 1.0454201698303223
+WARNING: psi_blocking_time = 0.9999417837200204
+WARNING: io_pressure is 26436.266000576863; tdiff = 1.0018434524536133
+WARNING: psi_blocking_time = 0.9999243492122084
+WARNING: io_pressure is 47152.36108553043; tdiff = 1.0065879821777344
+WARNING: psi_blocking_time = 0.9999575852080539
+WARNING: io_pressure is 71566.66497484402; tdiff = 1.0123987197875977
+WARNING: psi_blocking_time = 0.9999720544187001
+WARNING: io_pressure is 94196.82649206738; tdiff = 1.0572755336761475
+WARNING: psi_blocking_time = 0.9999787680876037
+WARNING: io_pressure is 50448.00396988443; tdiff = 1.0781397819519043
+WARNING: psi_blocking_time = 0.9999603560062118
+WARNING: io_pressure is 0.0; tdiff = 1.015068531036377
+NOTE: Pressure status changed to CPU: False, IO: False, Mem: False
+WARNING: io_pressure is 0.0; tdiff = 0.009170293807983398
+WARNING: io_pressure is 0.0; tdiff = 0.006640434265136719
+WARNING: io_pressure is 0.0; tdiff = 0.005966901779174805
+WARNING: io_pressure is 0.0; tdiff = 0.00582575798034668
+WARNING: io_pressure is 0.0; tdiff = 0.005890369415283203
+WARNING: io_pressure is 0.0; tdiff = 0.005780458450317383
+WARNING: io_pressure is 0.0; tdiff = 0.005305290222167969
+WARNING: io_pressure is 0.0; tdiff = 0.005245208740234375
+WARNING: io_pressure is 0.0; tdiff = 0.0053064823150634766
+WARNING: io_pressure is 0.0; tdiff = 0.005231380462646484
+WARNING: io_pressure is 0.0; tdiff = 0.005194902420043945
+WARNING: io_pressure is 0.0; tdiff = 0.004774332046508789
+WARNING: io_pressure is 0.0; tdiff = 0.004276275634765625
+WARNING: io_pressure is 0.0; tdiff = 0.004232883453369141
+WARNING: io_pressure is 0.0; tdiff = 0.003859281539916992
+WARNING: io_pressure is 0.0; tdiff = 0.0036346912384033203
+WARNING: io_pressure is 0.0; tdiff = 0.003380298614501953
+WARNING: io_pressure is 0.0; tdiff = 0.003171205520629883
+WARNING: io_pressure is 0.0; tdiff = 0.003030538558959961
+WARNING: io_pressure is 0.0; tdiff = 0.002929210662841797
+WARNING: io_pressure is 0.0; tdiff = 0.002857208251953125
+WARNING: io_pressure is 0.0; tdiff = 0.0026590824127197266
+WARNING: io_pressure is 0.0; tdiff = 0.002582550048828125
+WARNING: io_pressure is 0.0; tdiff = 0.002490997314453125
+WARNING: io_pressure is 0.0; tdiff = 0.0024166107177734375
+WARNING: io_pressure is 0.0; tdiff = 0.0023736953735351562
+WARNING: io_pressure is 0.0; tdiff = 0.0022568702697753906
+WARNING: io_pressure is 0.0; tdiff = 0.0022516250610351562
+WARNING: io_pressure is 0.0; tdiff = 0.0021741390228271484
+WARNING: io_pressure is 0.0; tdiff = 0.002165079116821289
+WARNING: io_pressure is 0.0; tdiff = 0.002173185348510742
+WARNING: io_pressure is 0.0; tdiff = 0.0021703243255615234
+WARNING: io_pressure is 0.0; tdiff = 0.0021719932556152344
+WARNING: io_pressure is 0.0; tdiff = 0.0021886825561523438
+WARNING: io_pressure is 0.0; tdiff = 0.002254486083984375
+WARNING: io_pressure is 0.0; tdiff = 0.0021207332611083984
+WARNING: io_pressure is 0.0; tdiff = 0.0021305084228515625
+WARNING: io_pressure is 0.0; tdiff = 0.0021195411682128906
+WARNING: io_pressure is 0.0; tdiff = 0.0021364688873291016
+WARNING: io_pressure is 0.0; tdiff = 0.0021877288818359375
+WARNING: io_pressure is 0.0; tdiff = 0.0021424293518066406
+WARNING: io_pressure is 0.0; tdiff = 0.0021190643310546875
+WARNING: io_pressure is 0.0; tdiff = 0.0021419525146484375
+WARNING: io_pressure is 0.0; tdiff = 0.0024085044860839844
+WARNING: io_pressure is 0.0; tdiff = 0.0021712779998779297
+WARNING: io_pressure is 0.0; tdiff = 0.002151966094970703
+WARNING: io_pressure is 0.0; tdiff = 0.0021126270294189453
+WARNING: io_pressure is 0.0; tdiff = 0.0023009777069091797
+WARNING: io_pressure is 0.0; tdiff = 0.0022933483123779297
+WARNING: io_pressure is 0.0; tdiff = 0.002260923385620117
+WARNING: io_pressure is 0.0; tdiff = 0.002270221710205078
+WARNING: io_pressure is 0.0; tdiff = 0.0022706985473632812
+WARNING: io_pressure is 0.0; tdiff = 0.0023043155670166016
+WARNING: io_pressure is 0.0; tdiff = 0.00226593017578125
+WARNING: io_pressure is 0.0; tdiff = 0.0022656917572021484
+WARNING: io_pressure is 0.0; tdiff = 0.002274751663208008
+WARNING: io_pressure is 0.0; tdiff = 0.0022735595703125
+WARNING: io_pressure is 0.0; tdiff = 0.0022668838500976562
+WARNING: io_pressure is 0.0; tdiff = 0.002264738082885742
+WARNING: io_pressure is 0.0; tdiff = 0.0022525787353515625
+WARNING: io_pressure is 0.0; tdiff = 0.0022869110107421875
+WARNING: io_pressure is 0.0; tdiff = 0.0022754669189453125
+WARNING: io_pressure is 0.0; tdiff = 0.0022656917572021484
+WARNING: io_pressure is 0.0; tdiff = 0.002267122268676758
+WARNING: io_pressure is 0.0; tdiff = 0.00225067138671875
+WARNING: io_pressure is 0.0; tdiff = 0.0022695064544677734
+WARNING: io_pressure is 0.0; tdiff = 0.0022788047790527344
+WARNING: io_pressure is 0.0; tdiff = 0.002274751663208008
+WARNING: io_pressure is 0.0; tdiff = 0.002292633056640625
+WARNING: io_pressure is 0.0; tdiff = 0.002285003662109375
+WARNING: io_pressure is 0.0; tdiff = 0.002294778823852539
+WARNING: io_pressure is 0.0; tdiff = 0.0022635459899902344
+WARNING: io_pressure is 0.0; tdiff = 0.0023169517517089844
+WARNING: io_pressure is 0.0; tdiff = 0.0021588802337646484
+WARNING: io_pressure is 0.0; tdiff = 0.002314329147338867
+WARNING: io_pressure is 0.0; tdiff = 0.002170562744140625
+NOTE: Running task 2646 of 5129 (/buildarea2/chenqi/poky/meta/recipes-graphics/xorg-lib/libxkbcommon_1.5.0.bb:do_collect_spdx_deps)
+WARNING: io_pressure is 0.0; tdiff = 0.07307577133178711
+WARNING: io_pressure is 0.0; tdiff = 0.002560853958129883
+WARNING: io_pressure is 0.0; tdiff = 0.002357006072998047
+WARNING: io_pressure is 0.0; tdiff = 0.0022530555725097656
+WARNING: io_pressure is 0.0; tdiff = 0.00222015380859375
+WARNING: io_pressure is 0.0; tdiff = 0.003270387649536133
+NOTE: Running task 2652 of 5129 (/buildarea2/chenqi/poky/meta/recipes-devtools/desktop-file-utils/desktop-file-utils_0.26.bb:do_prepare_recipe_sysroot)
+WARNING: io_pressure is 0.0; tdiff = 0.018936634063720703
+NOTE: Running task 2653 of 5129 (/buildarea2/chenqi/poky/meta-openembedded/meta-oe/recipes-connectivity/krb5/krb5_1.20.1.bb:do_configure)
+WARNING: io_pressure is 0.0; tdiff = 0.017096996307373047
+NOTE: Running task 2654 of 5129 (/buildarea2/chenqi/poky/meta/recipes-support/gnutls/gnutls_3.8.0.bb:do_collect_spdx_deps)
+WARNING: io_pressure is 0.0; tdiff = 0.05088090896606445
+WARNING: io_pressure is 0.0; tdiff = 0.002688884735107422
+WARNING: io_pressure is 0.0; tdiff = 0.0024585723876953125
+WARNING: io_pressure is 0.0; tdiff = 0.0029554367065429688
+WARNING: io_pressure is 0.0; tdiff = 0.002609729766845703
+WARNING: io_pressure is 0.0; tdiff = 0.0023984909057617188
+WARNING: io_pressure is 0.0; tdiff = 0.0024847984313964844
+WARNING: io_pressure is 0.0; tdiff = 0.0023179054260253906
+WARNING: io_pressure is 0.0; tdiff = 0.002333402633666992
+WARNING: io_pressure is 0.0; tdiff = 0.002358675003051758
+WARNING: io_pressure is 0.0; tdiff = 0.0021965503692626953
+NOTE: Running task 2665 of 5129 (/buildarea2/chenqi/poky/meta/recipes-extended/iptables/iptables_1.8.9.bb:do_compile)
+WARNING: io_pressure is 0.0; tdiff = 0.012697696685791016
+WARNING: io_pressure is 0.0; tdiff = 0.0024192333221435547
+WARNING: io_pressure is 0.0; tdiff = 0.0023064613342285156
+WARNING: io_pressure is 0.0; tdiff = 0.0024261474609375
+WARNING: io_pressure is 0.0; tdiff = 0.002290964126586914
+WARNING: io_pressure is 0.0; tdiff = 0.0022916793823242188
+WARNING: io_pressure is 0.0; tdiff = 0.0021741390228271484
+WARNING: io_pressure is 0.0; tdiff = 0.0022101402282714844
+NOTE: Running task 2673 of 5129 (/buildarea2/chenqi/poky/meta/recipes-extended/bash/bash_5.2.15.bb:do_packagedata)
+WARNING: io_pressure is 0.0; tdiff = 0.025072336196899414
+WARNING: io_pressure is 0.0; tdiff = 0.0026009082794189453
+WARNING: io_pressure is 0.0; tdiff = 0.002348661422729492
+WARNING: io_pressure is 0.0; tdiff = 0.0022449493408203125
+WARNING: io_pressure is 0.0; tdiff = 0.0023927688598632812
+WARNING: io_pressure is 0.0; tdiff = 0.0022313594818115234
+WARNING: io_pressure is 0.0; tdiff = 0.002261638641357422
+WARNING: io_pressure is 0.0; tdiff = 0.0022325515747070312
+WARNING: io_pressure is 0.0; tdiff = 0.0027968883514404297
+WARNING: io_pressure is 0.0; tdiff = 0.002773284912109375
+WARNING: io_pressure is 0.0; tdiff = 0.002429962158203125
+WARNING: io_pressure is 0.0; tdiff = 0.0024657249450683594
+WARNING: io_pressure is 0.0; tdiff = 0.002353191375732422
+WARNING: io_pressure is 0.0; tdiff = 0.00229644775390625
+NOTE: Running task 2687 of 5129 (/buildarea2/chenqi/poky/meta/recipes-devtools/flex/flex_2.6.4.bb:do_install)
+WARNING: io_pressure is 0.0; tdiff = 0.012068748474121094
+NOTE: Running task 2688 of 5129 (/buildarea2/chenqi/poky/meta/recipes-support/libevent/libevent_2.1.12.bb:do_install)
+WARNING: io_pressure is 0.0; tdiff = 0.013376474380493164
+WARNING: io_pressure is 0.0; tdiff = 0.0026311874389648438
+WARNING: io_pressure is 0.0; tdiff = 0.002310037612915039
+WARNING: io_pressure is 0.0; tdiff = 0.002508878707885742
+WARNING: io_pressure is 0.0; tdiff = 0.0021991729736328125
+WARNING: io_pressure is 0.0; tdiff = 0.0022439956665039062
+WARNING: io_pressure is 0.0; tdiff = 0.002228975296020508
+WARNING: io_pressure is 0.0; tdiff = 0.0021877288818359375
+WARNING: io_pressure is 0.0; tdiff = 0.002182483673095703
+WARNING: io_pressure is 0.0; tdiff = 0.00218963623046875
+WARNING: io_pressure is 0.0; tdiff = 0.0021622180938720703
+WARNING: io_pressure is 0.0; tdiff = 0.0021893978118896484
+WARNING: io_pressure is 0.0; tdiff = 0.0023584365844726562
+WARNING: io_pressure is 0.0; tdiff = 0.002237558364868164
+WARNING: io_pressure is 0.0; tdiff = 0.002286195755004883
+WARNING: io_pressure is 0.0; tdiff = 0.00223541259765625
+WARNING: io_pressure is 0.0; tdiff = 0.002240896224975586
+WARNING: io_pressure is 0.0; tdiff = 0.0022487640380859375
+WARNING: io_pressure is 0.0; tdiff = 0.0021927356719970703
+WARNING: io_pressure is 0.0; tdiff = 0.0021898746490478516
+WARNING: io_pressure is 0.0; tdiff = 0.002209186553955078
+WARNING: io_pressure is 0.0; tdiff = 0.002244234085083008
+NOTE: recipe libxkbcommon-1.5.0-r0: task do_collect_spdx_deps: Started
+WARNING: io_pressure is 0.0; tdiff = 0.002405405044555664
+WARNING: io_pressure is 0.0; tdiff = 0.002288341522216797
+WARNING: io_pressure is 0.0; tdiff = 0.002531766891479492
+WARNING: io_pressure is 0.0; tdiff = 0.0024046897888183594
+WARNING: io_pressure is 0.0; tdiff = 0.002331972122192383
+WARNING: io_pressure is 0.0; tdiff = 0.00234222412109375
+WARNING: io_pressure is 0.0; tdiff = 0.0022809505462646484
+WARNING: io_pressure is 0.0; tdiff = 0.0024259090423583984
+WARNING: io_pressure is 0.0; tdiff = 0.0022242069244384766
+WARNING: io_pressure is 0.0; tdiff = 0.0022575855255126953
+WARNING: io_pressure is 0.0; tdiff = 0.0022695064544677734
+WARNING: io_pressure is 0.0; tdiff = 0.0024955272674560547
+WARNING: io_pressure is 0.0; tdiff = 0.0023512840270996094
+WARNING: io_pressure is 0.0; tdiff = 0.0022919178009033203
+WARNING: io_pressure is 0.0; tdiff = 0.002226114273071289
+NOTE: Running task 2725 of 5129 (/buildarea2/chenqi/poky/meta/recipes-extended/libmnl/libmnl_1.0.5.bb:do_packagedata)
+WARNING: io_pressure is 81010.57973568283; tdiff = 0.0173187255859375
+WARNING: psi_blocking_time = 0.9999753121713398
+NOTE: Pressure status changed to CPU: False, IO: True, Mem: False
+NOTE: recipe gnutls-3.8.0-r0: task do_collect_spdx_deps: Started
+NOTE: recipe krb5-1.20.1-r0: task do_configure: Started
+NOTE: recipe iptables-1.8.9-r0: task do_compile: Started
+NOTE: recipe bash-5.2.15-r0: task do_packagedata: Started
+NOTE: recipe desktop-file-utils-0.26-r0: task do_prepare_recipe_sysroot: Started
+NOTE: recipe libevent-2.1.12-r0: task do_install: Started
+NOTE: recipe flex-2.6.4-r0: task do_install: Started
+NOTE: recipe libmnl-1.0.5-r0: task do_packagedata: Started
+NOTE: recipe gnutls-3.8.0-r0: task do_collect_spdx_deps: Succeeded
+WARNING: io_pressure is 178422.49508868146; tdiff = 1.0026426315307617
+WARNING: psi_blocking_time = 0.9999887907139191
+NOTE: recipe libxkbcommon-1.5.0-r0: task do_collect_spdx_deps: Succeeded
+NOTE: recipe libevent-2.1.12-r0: task do_install: Succeeded
+NOTE: recipe libmnl-1.0.5-r0: task do_packagedata: Succeeded
+NOTE: Task /buildarea2/chenqi/poky/meta/recipes-extended/libmnl/libmnl_1.0.5.bb:do_packagedata unihash changed to b82a0b44e15c6ed6168a603bcf3bee52d123a537d070138027b7b18f9860531e
+NOTE: recipe bash-5.2.15-r0: task do_packagedata: Succeeded
+NOTE: Task /buildarea2/chenqi/poky/meta/recipes-extended/bash/bash_5.2.15.bb:do_packagedata unihash changed to b6682fa9a71baf3ec738544c0ebed980c29474843e2a76081359d7d0528a997f
+NOTE: recipe flex-2.6.4-r0: task do_install: Succeeded
+NOTE: recipe desktop-file-utils-0.26-r0: task do_prepare_recipe_sysroot: Succeeded
+NOTE: recipe iptables-1.8.9-r0: task do_compile: Succeeded
+NOTE: Setscene tasks completed
+WARNING: io_pressure is 99928.25907683869; tdiff = 2.371331214904785
+WARNING: psi_blocking_time = 0.9999799858417997
+WARNING: io_pressure is 1011.7089337394225; tdiff = 1.0694775581359863
+WARNING: psi_blocking_time = 0.9980250988873822
+WARNING: io_pressure is 84144.53084620928; tdiff = 1.0100953578948975
+WARNING: psi_blocking_time = 0.9999762316550875
+WARNING: io_pressure is 7462.700695234069; tdiff = 1.017996072769165
+WARNING: psi_blocking_time = 0.9997320364144188
+WARNING: io_pressure is 114.6253105828195; tdiff = 1.0556132793426514
+WARNING: psi_blocking_time = 0.9827027491652233
+WARNING: io_pressure is 238.90279802051188; tdiff = 1.0673797130584717
+WARNING: psi_blocking_time = 0.99166329023045
+WARNING: io_pressure is 0.0; tdiff = 1.0367841720581055
+NOTE: Pressure status changed to CPU: False, IO: False, Mem: False
+NOTE: Running task 2726 of 5129 (/buildarea2/chenqi/poky/meta/recipes-graphics/xorg-lib/libxkbcommon_1.5.0.bb:do_create_spdx)
+WARNING: io_pressure is 1642.2971389910688; tdiff = 0.0895087718963623
+WARNING: psi_blocking_time = 0.9987829346546371
+NOTE: Pressure status changed to CPU: False, IO: True, Mem: False
+NOTE: recipe libxkbcommon-1.5.0-r0: task do_create_spdx: Started
+WARNING: io_pressure is 12902.473728454457; tdiff = 1.0099613666534424
+WARNING: psi_blocking_time = 0.9998450029781059
+NOTE: recipe libxkbcommon-1.5.0-r0: task do_create_spdx: Succeeded
+WARNING: io_pressure is 6837.2828795587375; tdiff = 1.008002758026123
+WARNING: psi_blocking_time = 0.999707528916948
+WARNING: io_pressure is 29.000152111851325; tdiff = 0.9999947547912598
+WARNING: psi_blocking_time = 0.9333336713579556
+WARNING: io_pressure is 2189.985902400168; tdiff = 1.0000064373016357
+WARNING: psi_blocking_time = 0.9990871689325755
+WARNING: io_pressure is 986.8407696552059; tdiff = 1.0011746883392334
+WARNING: psi_blocking_time = 0.9979753822058811
+WARNING: io_pressure is 1684.933475689529; tdiff = 0.9988524913787842
+WARNING: psi_blocking_time = 0.9988137135724279
+WARNING: io_pressure is 170.98654709803048; tdiff = 1.0000786781311035
+WARNING: psi_blocking_time = 0.9883711834806473
+WARNING: io_pressure is 230.9919043040436; tdiff = 1.000035047531128
+WARNING: psi_blocking_time = 0.9913790095132853
+WARNING: io_pressure is 66824.51321039419; tdiff = 1.0011296272277832
+WARNING: psi_blocking_time = 0.999970071311032
+WARNING: io_pressure is 113248.93334844569; tdiff = 1.1022443771362305
+WARNING: psi_blocking_time = 0.9999823399454564
+WARNING: io_pressure is 203479.363362582; tdiff = 1.0738976001739502
+WARNING: psi_blocking_time = 0.9999901710417313
+WARNING: io_pressure is 200661.34031361612; tdiff = 1.0274126529693604
+WARNING: psi_blocking_time = 0.9999900330077041
+WARNING: io_pressure is 278978.018374871; tdiff = 1.0000286102294922
+WARNING: psi_blocking_time = 0.9999928310020888
+WARNING: io_pressure is 211008.64651025977; tdiff = 1.0001959800720215
+WARNING: psi_blocking_time = 0.999990521760341
+WARNING: io_pressure is 239943.6806636274; tdiff = 1.0006556510925293
+WARNING: psi_blocking_time = 0.9999916647454136
+WARNING: io_pressure is 12183.637117704033; tdiff = 1.1015594005584717
+WARNING: psi_blocking_time = 0.9998358588786289
+WARNING: io_pressure is 1067.970463615947; tdiff = 1.0000276565551758
+WARNING: psi_blocking_time = 0.9981290409154667
+WARNING: io_pressure is 551.638006220323; tdiff = 1.0187840461730957
+WARNING: psi_blocking_time = 0.9963809944710849
+WARNING: io_pressure is 1131.9582579973169; tdiff = 1.0936799049377441
+WARNING: psi_blocking_time = 0.9982347098969601
+WARNING: io_pressure is 426.98277231940494; tdiff = 1.091378927230835
+WARNING: psi_blocking_time = 0.9953269147046242
+WARNING: io_pressure is 2332.5862482887337; tdiff = 1.006608009338379
+WARNING: psi_blocking_time = 0.9991429500403224
+WARNING: io_pressure is 1625.7685723637933; tdiff = 1.0954818725585938
+WARNING: psi_blocking_time = 0.9987705688233859
+WARNING: io_pressure is 2038.6495565580658; tdiff = 1.0001718997955322
+WARNING: psi_blocking_time = 0.9990194393965525
+WARNING: io_pressure is 503.79862107115383; tdiff = 1.036128282546997
+WARNING: psi_blocking_time = 0.996038024042625
+WARNING: io_pressure is 4944.80706751612; tdiff = 1.0653600692749023
+WARNING: psi_blocking_time = 0.9995956170605328
+WARNING: io_pressure is 1640.8720728950889; tdiff = 1.0000779628753662
+WARNING: psi_blocking_time = 0.9987818783003761
+WARNING: io_pressure is 6711.515248277175; tdiff = 0.9999232292175293
+WARNING: psi_blocking_time = 0.9997020490939647
+WARNING: io_pressure is 4429.980603453411; tdiff = 1.100682020187378
+WARNING: psi_blocking_time = 0.9995486326438799
+WARNING: io_pressure is 6252.579128968493; tdiff = 1.0768356323242188
+WARNING: psi_blocking_time = 0.9996801831465224
+WARNING: io_pressure is 879.9974823070079; tdiff = 1.0000028610229492
+WARNING: psi_blocking_time = 0.9977298459528366
+WARNING: io_pressure is 124236.79015441194; tdiff = 0.9999372959136963
+WARNING: psi_blocking_time = 0.999983901838583
+NOTE: recipe krb5-1.20.1-r0: task do_configure: Succeeded
+WARNING: io_pressure is 186346.268013355; tdiff = 1.0000200271606445
+WARNING: psi_blocking_time = 0.9999892673500325
+WARNING: io_pressure is 0.0; tdiff = 1.0000898838043213
+NOTE: Pressure status changed to CPU: False, IO: False, Mem: False
+NOTE: Running task 2727 of 5129 (/buildarea2/chenqi/poky/meta/recipes-devtools/desktop-file-utils/desktop-file-utils_0.26.bb:do_configure)
+WARNING: io_pressure is 0.0; tdiff = 0.07874345779418945
+NOTE: Running task 2728 of 5129 (/buildarea2/chenqi/poky/meta-openembedded/meta-oe/recipes-connectivity/krb5/krb5_1.20.1.bb:do_compile)
+WARNING: io_pressure is 0.0; tdiff = 0.03340554237365723
+NOTE: Running task 2729 of 5129 (/buildarea2/chenqi/poky/meta/recipes-support/gnutls/gnutls_3.8.0.bb:do_create_spdx)
+WARNING: io_pressure is 0.0; tdiff = 0.04926180839538574
+NOTE: Running task 2730 of 5129 (/buildarea2/chenqi/poky/meta/recipes-extended/iptables/iptables_1.8.9.bb:do_install)
+WARNING: io_pressure is 0.0; tdiff = 0.012816905975341797
+NOTE: Running task 2731 of 5129 (/buildarea2/chenqi/poky/meta/recipes-core/systemd/systemd_254.bb:do_collect_spdx_deps)
+WARNING: io_pressure is 54966.74998052512; tdiff = 0.11936306953430176
+WARNING: psi_blocking_time = 0.9999636150287995
+NOTE: Pressure status changed to CPU: False, IO: True, Mem: False
+NOTE: recipe desktop-file-utils-0.26-r0: task do_configure: Started
+NOTE: recipe krb5-1.20.1-r0: task do_compile: Started
+NOTE: recipe gnutls-3.8.0-r0: task do_create_spdx: Started
+NOTE: recipe systemd-1_254-r0: task do_collect_spdx_deps: Started
+NOTE: recipe iptables-1.8.9-r0: task do_install: Started
+NOTE: recipe systemd-1_254-r0: task do_collect_spdx_deps: Succeeded
+WARNING: io_pressure is 28848.265012100488; tdiff = 1.0208239555358887
+WARNING: psi_blocking_time = 0.9999306741437204
+NOTE: recipe iptables-1.8.9-r0: task do_install: Succeeded
+WARNING: io_pressure is 52222.97556655892; tdiff = 1.0459764003753662
+WARNING: psi_blocking_time = 0.9999617034134551
+NOTE: recipe gnutls-3.8.0-r0: task do_create_spdx: Succeeded
+WARNING: io_pressure is 5531.543487778208; tdiff = 1.0537745952606201
+WARNING: psi_blocking_time = 0.999638502615584
+WARNING: io_pressure is 24635.617469275883; tdiff = 1.0956900119781494
+WARNING: psi_blocking_time = 0.9999188200246039
+WARNING: io_pressure is 45.176209088089486; tdiff = 1.084641695022583
+WARNING: psi_blocking_time = 0.9566876528087301
+WARNING: io_pressure is 780.4382489182001; tdiff = 1.0225024223327637
+WARNING: psi_blocking_time = 0.9974406167054547
+WARNING: io_pressure is 165901.38970923182; tdiff = 1.0959763526916504
+WARNING: psi_blocking_time = 0.9999879447185571
+WARNING: io_pressure is 444423.7722721062; tdiff = 1.0075631141662598
+WARNING: psi_blocking_time = 0.9999954998008105
+NOTE: recipe libdnf-0.70.1-r0: task do_compile: Succeeded
+WARNING: io_pressure is 529463.7116669501; tdiff = 1.027660608291626
+WARNING: psi_blocking_time = 0.9999962226000035
+WARNING: io_pressure is 304820.4834978825; tdiff = 1.0118775367736816
+WARNING: psi_blocking_time = 0.9999934387826702
+NOTE: recipe desktop-file-utils-0.26-r0: task do_configure: Succeeded
+WARNING: io_pressure is 297300.37041735055; tdiff = 1.0800087451934814
+WARNING: psi_blocking_time = 0.9999932728194384
+WARNING: io_pressure is 16523.606116927367; tdiff = 1.0702264308929443
+WARNING: psi_blocking_time = 0.9998789683708134
+WARNING: io_pressure is 8457.139096781666; tdiff = 1.0045950412750244
+WARNING: psi_blocking_time = 0.9997635413680107
+WARNING: io_pressure is 5818.571450804195; tdiff = 1.0846304893493652
+WARNING: psi_blocking_time = 0.9996563320827131
+WARNING: io_pressure is 655.0874716064051; tdiff = 1.1036694049835205
+WARNING: psi_blocking_time = 0.9969516259850183
+WARNING: io_pressure is 84.10312613910041; tdiff = 0.9987738132476807
+WARNING: psi_blocking_time = 0.9764991006707436
+WARNING: io_pressure is 10950.180242104083; tdiff = 1.0052802562713623
+WARNING: psi_blocking_time = 0.999817371282749
+WARNING: io_pressure is 0.0; tdiff = 1.100804328918457
+NOTE: Pressure status changed to CPU: False, IO: False, Mem: False
+NOTE: Running task 2732 of 5129 (/buildarea2/chenqi/poky/meta/recipes-devtools/libdnf/libdnf_0.70.1.bb:do_install)
+WARNING: io_pressure is 0.0; tdiff = 0.06340479850769043
+NOTE: Running task 2733 of 5129 (/buildarea2/chenqi/poky/meta/recipes-devtools/desktop-file-utils/desktop-file-utils_0.26.bb:do_compile)
+WARNING: io_pressure is 0.0; tdiff = 0.015772581100463867
+NOTE: Running task 2734 of 5129 (/buildarea2/chenqi/poky/meta/recipes-core/systemd/systemd_254.bb:do_create_spdx)
+WARNING: io_pressure is 96223.22792838543; tdiff = 0.08826351165771484
+WARNING: psi_blocking_time = 0.9999792152138494
+NOTE: Pressure status changed to CPU: False, IO: True, Mem: False
+NOTE: recipe desktop-file-utils-0.26-r0: task do_compile: Started
+NOTE: recipe systemd-1_254-r0: task do_create_spdx: Started
+NOTE: recipe libdnf-0.70.1-r0: task do_install: Started
+WARNING: io_pressure is 21760.249766856345; tdiff = 1.0405211448669434
+WARNING: psi_blocking_time = 0.999908093513864
+NOTE: recipe desktop-file-utils-0.26-r0: task do_compile: Succeeded
+WARNING: io_pressure is 16623.812508635714; tdiff = 1.0128843784332275
+WARNING: psi_blocking_time = 0.9998796978913921
+NOTE: recipe libdnf-0.70.1-r0: task do_install: Succeeded
+WARNING: io_pressure is 747.6666582462977; tdiff = 1.00044584274292
+WARNING: psi_blocking_time = 0.9973285841195535
+WARNING: io_pressure is 2484.0545180650183; tdiff = 0.9975626468658447
+WARNING: psi_blocking_time = 0.9991951886827991
+WARNING: io_pressure is 2251.091652016688; tdiff = 0.9995150566101074
+WARNING: psi_blocking_time = 0.9991119366753085
+WARNING: io_pressure is 416.05660388420046; tdiff = 1.016688585281372
+WARNING: psi_blocking_time = 0.9952044878767695
+NOTE: recipe systemd-1_254-r0: task do_create_spdx: Succeeded
+WARNING: io_pressure is 33874.57940082706; tdiff = 1.0727808475494385
+WARNING: psi_blocking_time = 0.999940960419412
+WARNING: io_pressure is 11562.988552996265; tdiff = 1.0964293479919434
+WARNING: psi_blocking_time = 0.9998270492926524
+WARNING: io_pressure is 5045.98534053187; tdiff = 1.0273513793945312
+WARNING: psi_blocking_time = 0.9996037238341197
+WARNING: io_pressure is 0.0; tdiff = 1.07930326461792
+NOTE: Pressure status changed to CPU: False, IO: False, Mem: False
+NOTE: Running task 2735 of 5129 (/buildarea2/chenqi/poky/meta/recipes-devtools/desktop-file-utils/desktop-file-utils_0.26.bb:do_install)
+WARNING: io_pressure is 0.0; tdiff = 0.026981592178344727
+WARNING: io_pressure is 0.0; tdiff = 0.0027441978454589844
+WARNING: io_pressure is 0.0; tdiff = 0.0025703907012939453
+WARNING: io_pressure is 0.0; tdiff = 0.002794504165649414
+WARNING: io_pressure is 0.0; tdiff = 0.0027756690979003906
+WARNING: io_pressure is 0.0; tdiff = 0.002698183059692383
+WARNING: io_pressure is 0.0; tdiff = 0.0027093887329101562
+WARNING: io_pressure is 0.0; tdiff = 0.002705097198486328
+WARNING: io_pressure is 0.0; tdiff = 0.002454519271850586
+WARNING: io_pressure is 0.0; tdiff = 0.002457857131958008
+WARNING: io_pressure is 0.0; tdiff = 0.0024566650390625
+WARNING: io_pressure is 0.0; tdiff = 0.0024709701538085938
+WARNING: io_pressure is 0.0; tdiff = 0.0024433135986328125
+WARNING: io_pressure is 0.0; tdiff = 0.002336263656616211
+WARNING: io_pressure is 0.0; tdiff = 0.0023260116577148438
+WARNING: io_pressure is 0.0; tdiff = 0.0022797584533691406
+NOTE: Running task 2751 of 5129 (/buildarea2/chenqi/poky/meta/recipes-core/coreutils/coreutils_9.3.bb:do_package)
+WARNING: io_pressure is 4642.164464557958; tdiff = 0.3366963863372803
+WARNING: psi_blocking_time = 0.9995692592809783
+NOTE: Pressure status changed to CPU: False, IO: True, Mem: False
+NOTE: recipe desktop-file-utils-0.26-r0: task do_install: Started
+NOTE: recipe coreutils-9.3-r0: task do_package: Started
+NOTE: recipe desktop-file-utils-0.26-r0: task do_install: Succeeded
+WARNING: io_pressure is 3180.134521321227; tdiff = 1.0496411323547363
+WARNING: psi_blocking_time = 0.9993712934845744
+WARNING: io_pressure is 23014.28599565682; tdiff = 1.0327932834625244
+WARNING: psi_blocking_time = 0.9999131012319213
+WARNING: io_pressure is 112635.02774633905; tdiff = 1.0014557838439941
+WARNING: psi_blocking_time = 0.999982243692005
+WARNING: io_pressure is 702617.2500326214; tdiff = 1.0195565223693848
+WARNING: psi_blocking_time = 0.9999971535040544
+WARNING: io_pressure is 378231.58986633533; tdiff = 1.0008735656738281
+WARNING: psi_blocking_time = 0.999994712248353
+WARNING: io_pressure is 520653.47785547475; tdiff = 1.081056833267212
+WARNING: psi_blocking_time = 0.9999961586808813
+WARNING: io_pressure is 190748.8448000638; tdiff = 1.1001639366149902
+WARNING: psi_blocking_time = 0.999989515063553
+WARNING: io_pressure is 308395.9142942881; tdiff = 1.032069444656372
+WARNING: psi_blocking_time = 0.9999935148508066
+WARNING: io_pressure is 19056.50573371175; tdiff = 1.078634262084961
+WARNING: psi_blocking_time = 0.9998950544720833
+WARNING: io_pressure is 837.9160945988342; tdiff = 1.0001001358032227
+WARNING: psi_blocking_time = 0.997615971355328
+WARNING: io_pressure is 822.407102486135; tdiff = 1.008016586303711
+WARNING: psi_blocking_time = 0.9975710678302855
+WARNING: io_pressure is 0.0; tdiff = 1.0830457210540771
+NOTE: Pressure status changed to CPU: False, IO: False, Mem: False
+NOTE: Running task 2752 of 5129 (/buildarea2/chenqi/poky/meta/recipes-extended/quota/quota_4.09.bb:do_package)
+WARNING: io_pressure is 0.0; tdiff = 0.03832745552062988
+WARNING: io_pressure is 0.0; tdiff = 0.0026662349700927734
+WARNING: io_pressure is 0.0; tdiff = 0.0022313594818115234
+WARNING: io_pressure is 0.0; tdiff = 0.0022792816162109375
+NOTE: Running task 2756 of 5129 (/buildarea2/chenqi/poky/meta/recipes-devtools/python/python3-iniparse_0.5.bb:do_package)
+WARNING: io_pressure is 0.0; tdiff = 0.022960901260375977
+NOTE: Running task 2757 of 5129 (/buildarea2/chenqi/poky/meta/recipes-devtools/libcomps/libcomps_0.1.19.bb:do_package)
+WARNING: io_pressure is 79221.06012647007; tdiff = 0.020171403884887695
+WARNING: psi_blocking_time = 0.9999747545065503
+NOTE: Pressure status changed to CPU: False, IO: True, Mem: False
+NOTE: recipe quota-4.09-r0: task do_package: Started
+NOTE: recipe python3-iniparse-0.5-r0: task do_package: Started
+NOTE: recipe libcomps-0.1.19-r0: task do_package: Started
+WARNING: io_pressure is 198836.76107713243; tdiff = 1.0462300777435303
+WARNING: psi_blocking_time = 0.9999899415483802
+WARNING: io_pressure is 29724.826443513884; tdiff = 1.0481810569763184
+WARNING: psi_blocking_time = 0.9999327184391728
+WARNING: io_pressure is 15857.984538008443; tdiff = 1.0081987380981445
+WARNING: psi_blocking_time = 0.9998738885207179
+NOTE: recipe python3-iniparse-0.5-r0: task do_package: Succeeded
+NOTE: recipe coreutils-9.3-r0: task do_package: Succeeded
+WARNING: io_pressure is 40131.71373079899; tdiff = 1.0112700462341309
+WARNING: psi_blocking_time = 0.9999501653435794
+NOTE: recipe libcomps-0.1.19-r0: task do_package: Succeeded
+WARNING: io_pressure is 10670.133349112619; tdiff = 1.055656909942627
+WARNING: psi_blocking_time = 0.9998125784830375
+NOTE: recipe quota-4.09-r0: task do_package: Succeeded
+WARNING: io_pressure is 10819.727248550405; tdiff = 1.0004873275756836
+WARNING: psi_blocking_time = 0.9998151695395272
+WARNING: io_pressure is 62.54400100856991; tdiff = 1.0552570819854736
+WARNING: psi_blocking_time = 0.9685257464393804
+NOTE: recipe krb5-1.20.1-r0: task do_compile: Succeeded
+NOTE: Tasks Summary: Attempted 2757 tasks of which 2731 didn't need to be rerun and all succeeded.
+ERROR: Command execution failed: Stopped build
