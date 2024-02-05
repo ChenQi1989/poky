@@ -67,12 +67,15 @@ fi
 if [ ! -r "$BUILDDIR/conf/local.conf" ]; then
     cat <<EOM
 You had no conf/local.conf file. This configuration file has therefore been
-created for you from $OECORELOCALCONF
+created for you from $OECORELOCALCONF and $OEROOT/layers/extra-local.conf
 You may wish to edit it to, for example, select a different MACHINE (target
 hardware).
 
 EOM
     cp -f "$OECORELOCALCONF" "$BUILDDIR/conf/local.conf"
+    if [ -e $OEROOT/layers/extra-local.conf ]; then
+	cat $OEROOT/layers/extra-local.conf >> $BUILDDIR/conf/local.conf
+    fi
     SHOWYPDOC=yes
 fi
 
@@ -82,7 +85,7 @@ fi
 if [ ! -r "$BUILDDIR/conf/bblayers.conf" ]; then
     cat <<EOM
 You had no conf/bblayers.conf file. This configuration file has therefore been
-created for you from $OECORELAYERCONF
+created for you from $OECORELAYERCONF and $OEROOT/layers/extra-bblayers.conf
 To add additional metadata layers into your configuration please add entries
 to conf/bblayers.conf.
 
@@ -95,6 +98,11 @@ EOM
     sed -e "s|##OEROOT##|$OEROOT|g" \
         -e "s|##COREBASE##|$OEROOT|g" \
         "$OECORELAYERCONF" > "$BUILDDIR/conf/bblayers.conf"
+    if [ -e $OEROOT/layers/extra-bblayers.conf ]; then
+	sed -e "s|##OEROOT##|$OEROOT|g" \
+            -e "s|##COREBASE##|$OEROOT|g" \
+            "$OEROOT/layers/extra-bblayers.conf" >> "$BUILDDIR/conf/bblayers.conf"
+    fi
     SHOWYPDOC=yes
 fi
 
