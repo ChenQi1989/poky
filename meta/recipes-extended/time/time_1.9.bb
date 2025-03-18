@@ -21,3 +21,9 @@ SRC_URI[md5sum] = "d2356e0fe1c0b85285d83c6b2ad51b5f"
 SRC_URI[sha256sum] = "fbacf0c81e62429df3e33bda4cee38756604f18e01d977338e23306a3e3b521e"
 
 inherit autotools
+
+# We don't want our version to be "UNKNOWN", and time repo's latest commits dates back
+# to 20210105. It's very unlikely it'll generate a new tarball with a .tarball-version included.
+do_configure:prepend () {
+    echo ${PV} > ${S}/.tarball-version
+}
